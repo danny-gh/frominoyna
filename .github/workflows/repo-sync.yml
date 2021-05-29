@@ -1,8 +1,9 @@
-name: 同步
+# File: .github/workflows/repo-sync.yml
+name: A🔄自动同步🔄A
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '30 0-23/3 * * *'
+    - cron: '0 */1 * * *'
+  workflow_dispatch:
   watch:
     types: started
   repository_dispatch:
@@ -11,7 +12,6 @@ jobs:
   repo-sync:
     env:
       PAT: ${{ github.event.client_payload.PAT || secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
-
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -27,4 +27,3 @@ jobs:
           source_branch: "master"
           destination_branch: "master"
           github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
-
