@@ -6,7 +6,7 @@ name: 京东赚赚
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0,30 10-13/1 * * *'
+    - cron: '0,30 12-14/1 * * *'
   
   watch:
     types: started
@@ -60,4 +60,4 @@ jobs:
           PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER }}
           QYWX_KEY: ${{ secrets.QYWX_KEY }}
           QYWX_AM: ${{ secrets.QYWX_AM }}
-          
+          JDZZ_SHARECODES: ${{ secrets.JDZZ_SHARECODES }}
